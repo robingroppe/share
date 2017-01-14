@@ -2,7 +2,7 @@
 #Variablen:
 log="/home/user/Bin/share/share.log"
 ftp="ftp://server.com/htdocs/share/"
-ftpuser="user@server.com"
+ftpuser="user"
 ftppass="password"
 http="https://server.com/share/"
 
