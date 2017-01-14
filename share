@@ -1,0 +1,26 @@
+#!/bin/bash
+#Variablen:
+log="/home/user/Bin/share/share.log"
+ftp="ftp://server.com/htdocs/share/"
+ftpuser="user@server.com"
+ftppass="password"
+http="https://server.com/share/"
+
+#Script:
+filename=$(echo "$1" | xargs | sed -e 's/[[:space:]]/%20/g' -e 's/^.*\/\([^\/]*\)$/\1/')
+if [ -e "$1" ]
+	then
+		if curl -T "$1" -u "$ftpuser":"$ftppass" "$ftp""$filename"
+			then
+				echo "$1 hochgeladen nach: ${http}$filename" >> ${log}
+				echo "${http}$filename" | xclip -selection c
+				echo "$filename hochgeladen!"
+			else
+				echo "Scheiße!!! Mach die Glotzen uff, du Arschkrampe!"
+				echo "Lokaler Pfad: $1"
+				echo "Entfernter Pfad: ${http}$filename"
+			fi
+	else
+		echo "Datei nicht gefunden, du Affe!"
+		exit 1
+fi
