@@ -19,7 +19,7 @@ if [ -e "$1" ]
 				echo "Scheiße!!! Mach die Glotzen uff, du Arschkrampe!"
 				echo "Lokaler Pfad: $1"
 				echo "Entfernter Pfad: ${http}$filename"
-			fi
+		fi
 	else
 		echo "Datei nicht gefunden, du Affe!"
 		exit 1
